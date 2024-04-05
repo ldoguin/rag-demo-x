@@ -29,6 +29,8 @@ def save_tweet_to_vector_store(uploaded_file, vector_store):
         
         docs = []
         for tweet in data:
+          print("tweet:")
+          print(tweet)
           doc = create_doc_from_json_tweet(tweet)
           docs.append(doc)
 
