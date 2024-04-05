@@ -16,8 +16,16 @@ def create_doc_from_json_tweet(tweet):
 
 def save_tweet_to_vector_store(uploaded_file, vector_store):
     if uploaded_file is not None:
-        data = json.load(uploaded_file.getvalue())
+        temp_dir = tempfile.TemporaryDirectory()
+        temp_file_path = os.path.join(temp_dir.name, uploaded_file.name)
 
+        with open(temp_file_path, "wb") as f:
+            f.write(uploaded_file.getvalue())
+            
+        with open(temp_file_path, "r") as f:
+            data = json.load(f)
+
+        
         docs = []
         for tweet in data:
           doc = create_doc_from_json_tweet(tweet)
