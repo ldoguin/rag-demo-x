@@ -199,7 +199,7 @@ if __name__ == "__main__":
                 submitted = st.form_submit_button("Upload")
                 if submitted:
                     # store the tweets in the vector store
-                    save_to_vector_store(uploaded_file, vector_store)
+                    save_tweet_to_vector_store(uploaded_file, vector_store)
 
             st.subheader("How does it work?")
             st.markdown(
