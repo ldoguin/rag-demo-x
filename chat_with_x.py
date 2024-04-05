@@ -12,7 +12,8 @@ from langchain.docstore.document import Document
 import json
 
 def create_doc_from_json_tweet(tweet):
-    return Document(page_content=tweet.full_text, metadata=tweet)
+    print(tweet)
+    return Document(page_content=tweet.text, metadata=tweet)
 
 def save_tweet_to_vector_store(uploaded_file, vector_store):
     if uploaded_file is not None:
